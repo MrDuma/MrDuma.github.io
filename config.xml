@@ -51,12 +51,12 @@
     <icon src="res/icons/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icons/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
     <icon src="res/icons/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
-    <splash src="screen-ldpi-portrait.png" platform="android" qualifier="ldpi" />
-	<splash src="screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
-	<splash src="screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
-	<splash src="screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
-	<splash src="screen-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
-	<splash src="screen-xxxhdpi-portrait.png" platform="android" qualifier="port-xxxhdpi" />
+    <splash src="res/screens/android/screen-ldpi-portrait.png" platform="android" qualifier="ldpi" />
+	<splash src="res/screens/android/screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
+	<splash src="res/screens/android/screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
+	<splash src="res/screens/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
+	<splash src="res/screens/android/screen-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
+	<splash src="res/screens/android/screen-xxxhdpi-portrait.png" platform="android" qualifier="port-xxxhdpi" />
     <!--
         Define access to external domains.
 
