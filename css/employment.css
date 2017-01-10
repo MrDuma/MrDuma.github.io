@@ -1,0 +1,59 @@
+.header-edu {
+	color: #ffffff;
+	padding: 23px 10px 20px;
+}
+.header-edu.lecture {
+	background-color: #2196f3;
+}
+.header-edu.laboratory {
+	background-color: #ff9800;
+}
+.header-edu.practice {
+	background-color: #4CAF50;
+}
+.header-edu.physical-edu {
+	background-color: #ff5722;
+}
+.header-edu.physical-edu .class-edu {
+	display: none;
+}
+.main-edu {
+	color: #565151;
+	padding: 10px;
+}
+.time-edu {
+	padding: 0px 20px;
+	font-size: 1em;
+}
+.class-edu {
+	padding: 10px 20px 0px;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #ffffff;
+}
+.name-edu {
+	padding: 10px 10px 0px 20px;
+	font-size: 14px;
+}
+.aud-edu {
+	padding: 10px 20px 0px;
+	font-size: 13px;
+}
+.aud-edu span, .teacher-edu span  {
+	font-size: 12px;
+	font-weight: 600;
+	color: #4c4c4c;
+}
+.teacher-edu {
+	padding: 10px 20px 10px;
+	font-size: 13px;
+}
+.md-icon-button-close {
+	position: absolute;
+	right: 0;
+	margin-top: -10px !important;
+}
+.md-icon-button-close svg {
+	color: #ffffff;
+}

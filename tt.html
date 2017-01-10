@@ -1,0 +1,376 @@
+<div ng-co<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Расписание ВСГУТУ</title>
+		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+		<link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1-master-0b72ab9/angular-material.css'>
+		<link rel="stylesheet" href="css/timetable.css">
+		<link rel="stylesheet" href="css/employment.css">
+
+	</head>
+	<body>
+		<div ng-controller="ToolbarCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
+		  <md-content>
+			<md-toolbar class="md-hue-2">
+			  <div class="md-toolbar-tools">
+				<h2 flex="" md-truncate="" ng-controller="ListCtrl">{{nameGroup[0]}}</h2>
+				<div class="md-menu-demo menudemoMenuPositionModes" ng-controller="PositionDemoCtrl as ctrl" ng-cloak="" style="" ng-app="MyApp">
+				  <div class="menu-demo-container" layout-align="start center" layout="column">
+					<div class="menus" layout-wrap="" layout="row" layout-fill="" layout-align="space-between center" style="">
+					  <div layout="column" flex-xs="100" flex-sm="100" flex="33" layout-align="center center">
+						<md-menu md-position-mode="target-right target">
+						  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
+							<md-icon md-menu-origin="" md-svg-icon="img/icons/more_vert.svg"></md-icon>
+						  </md-button>
+						  <md-menu-content width="4">
+							<md-menu-item ng-repeat="item in ['Настройки групп','О приложении']">
+							  <md-button ng-click="ctrl.announceClick($index, item)">
+								<div layout="row" flex="">
+								  <p flex="">{{item}}</p>
+								</div>
+							  </md-button>
+							</md-menu-item>
+						  </md-menu-content>
+						</md-menu>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</md-toolbar>
+		  </md-content>
+		  <div ng-cloak="" ng-controller="SwipeCtrl" class="" ng-app="MyApp">
+			<div ng-controller="ListCtrl" ng-cloak="" class="dividerdemoBasicUsage" ng-app="MyApp">
+			  <md-tabs md-selected="data.selectedIndexWeek">
+				<md-tab label="{{data.nameFirstWeek}}">
+				  <md-content>
+					<md-tabs ng-swipe-left="next1()" ng-swipe-right="previous1()" md-selected="data.selectedIndex1">
+					  <md-tab label="Пн">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.monday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.monday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="firsttimes.monday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Вт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.tuesday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.tuesday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="firsttimes.tuesday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Ср">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.wednesday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.wednesday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="firsttimes.wednesday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Чт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.thursday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.thurday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="firsttimes.thurday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Пт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.friday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.friday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="firsttimes.friday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Сб">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in firsttimes.saturday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="firsttimes.saturday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="firsttimes.saturday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					</md-tabs>
+				  </md-content>
+				</md-tab>
+				<md-tab label="{{data.nameSecondWeek}}">
+				  <md-content>
+					<md-tabs ng-swipe-left="next2()" ng-swipe-right="previous2()" md-selected="data.selectedIndex2">
+					  <md-tab label="Пн">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.monday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.monday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="secondtimes.monday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Вт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.tuesday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.tuesday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="secondtimes.tuesday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Ср">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.wednesday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.wednesday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="secondtimes.wednesday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Чт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.thursday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.thursday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="secondtimes.thursday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Пт">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.friday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.friday.off">
+							  <md-list-item class="md-3-line" ng-bind-html-unsafe="secondtimes.friday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					  <md-tab label="Сб">
+						<md-content>
+						  <md-list>
+							<div style="classes" ng-repeat="item in secondtimes.saturday" ng-if="item.lesDay">
+							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+								<md-list-item class="md-3-line" ng-bind-html="item.lesDay">
+								  <md-divider md-inset></md-divider>
+								</md-list-item>
+							  </div>
+							</div>
+							<div style="classes" ng-if="secondtimes.saturday.off">
+							  <md-list-item class="md-3-line" ng-bind-html="secondtimes.saturday.off">
+								<md-divider md-inset></md-divider>
+							  </md-list-item>
+							</div>
+						  </md-list>
+						</md-content>
+					  </md-tab>
+					</md-tabs>
+				  </md-content>
+				</md-tab>
+			  </md-tabs>
+			</div>
+		  </div>
+		  <script type="text/ng-template" id="singleclass.tmpl.html">
+				<md-dialog>
+					<md-dialog-content style="min-height:270px;">
+						<div class="employment">
+							<div class="header-edu" ng-class = "selectedItem.classcss">
+								<md-button class="md-icon-button md-icon-button-close" ng-click="cancel()">
+									<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Cancel"></md-icon>
+							    </md-button>
+								<div class="time-edu">{{selectedItem.timeK}}</div>
+								<div class="class-edu">{{selectedItem.clas}}</div>
+								<div class="name-edu">{{selectedItem.name["one"]}}</div>
+							</div>
+							<div class="main-edu">
+								<div class="aud-edu">
+									<span>Аудитория</span>
+									<div>{{selectedItem.classroom}}</div>
+								</div>
+								<div class="teacher-edu">
+									<span>Преподаватель</span>
+									<div>{{selectedItem.teacher}}</div>
+								</div>
+							</div>
+						</div>  
+					</md-dialog-content>
+				</md-dialog>
+			</script>  
+			<script type="text/ng-template" id="classone.tmpl.html">
+				<md-dialog>
+					<md-dialog-content style="min-height:270px;">
+						<div class="employment">
+							<div class="header-edu" ng-class = "selectedItem.classcss">
+								<md-button class="md-icon-button md-icon-button-close" ng-click="cancel()">
+									<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Cancel"></md-icon>
+							    </md-button>
+								<div class="time-edu">{{selectedItem.timeK}}</div>
+								<div class="class-edu">{{selectedItem.clas}}</div>
+								<div class="name-edu">{{selectedItem.name["one"]}}</div>
+							</div>
+							<div class="main-edu">
+								<div class="aud-edu">
+									<span>Аудитория</span>
+									<div>{{selectedItem.classroom["one"]}}</div>
+								</div>
+								<div class="teacher-edu">
+									<span>Преподаватель</span>
+									<div>{{selectedItem.teacher["one"]}}</div>
+								</div>
+							</div>
+						</div>  
+					</md-dialog-content>
+				</md-dialog>
+			</script> 
+			<script type="text/ng-template" id="classtwo.tmpl.html">
+				<md-dialog>
+					<md-dialog-content style="min-height:270px;">
+						<div class="employment">
+							<div class="header-edu" ng-class = "selectedItem.classcss">
+								<md-button class="md-icon-button md-icon-button-close" ng-click="cancel()">
+									<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Cancel"></md-icon>
+							    </md-button>
+								<div class="time-edu">{{selectedItem.timeK}}</div>
+								
+								<div class="class-edu">{{selectedItem.clas}}</div>
+								<div class="name-edu">{{selectedItem.name["two"]}}</div>
+							</div>
+							<div class="main-edu">
+								<div class="aud-edu">
+									<span>Аудитория</span>
+									<div>{{selectedItem.classroom["two"]}}</div>
+								</div>
+								<div class="teacher-edu">
+									<span>Преподаватель</span>
+									<div>{{selectedItem.teacher["two"]}}</div>
+								</div>
+							</div>
+						</div>  
+					</md-dialog-content>
+				</md-dialog>
+			</script> 
+		</div>
+		 
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+			<script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1-master-0b72ab9/angular-material.js'></script>
+			<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+			<script src='https://code.angularjs.org/latest/angular-sanitize.min.js'></script>
+			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+			<script src="js/angular-swipe.js"></script>
+			<script src="js/angular-swipe.min.js"></script>
+			<script src="js/menu.js"></script>
+			<script src="js/weekNum.js"></script>
+			<script src="js/timetable.js"></script>	
+	</body>
+</html>

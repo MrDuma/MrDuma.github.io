@@ -1,0 +1,12 @@
+.md-menu-demo {
+    display: block;
+    position: absolute;
+    float: right;
+    right: 0;
+}
+md-icon {
+	color: #ffffff;
+}
+.md-icon-button {
+	padding-top: 2px !important;
+}

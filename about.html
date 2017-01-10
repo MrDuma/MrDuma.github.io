@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Расписание ВСГУТУ</title>
+		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1-master-0b72ab9/angular-material.css'>
+		<link rel="stylesheet" href="css/timetable.css">
+	</head>
+  <body>
+		<div ng-controller="ToolbarCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp" style="height: 100%;">
+			<div ng-controller="ListCtrl" layout="column" ng-cloak="" ng-show="isLoading" style="position: fixed; z-index: 9; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.6);" class="progressCirculardemoBasicUsage" ng-app="MyApp">
+				<md-content layout-padding="" style="background: none; top: calc(50% - 36px);">
+					<div layout="row" layout-sm="column" layout-align="space-around">
+						<md-progress-circular class="md-accent" md-diameter="40"></md-progress-circular>
+					</div>
+				</md-content>
+			</div>
+			<md-content>
+				<md-toolbar class="md-hue-2">
+					<div class="md-toolbar-tools">
+						<h2 flex="" md-truncate="">О приложении</h2>
+						<div class="md-menu-demo menudemoMenuPositionModes" ng-controller="PositionDemoCtrl as ctrl" ng-cloak="" style="" ng-app="MyApp">
+							<div class="menu-demo-container" layout-align="start center" layout="column">
+								<div class="menus" layout-wrap="" layout="row" layout-fill="" layout-align="space-between center" style="">
+									<div layout="column" flex-xs="100" flex-sm="100" flex="33" layout-align="center center">
+										<md-menu md-position-mode="target-right target">
+											<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
+												<md-icon md-menu-origin="" md-svg-icon="img/icons/more_vert.svg"></md-icon>
+											</md-button>
+											<md-menu-content width="4">
+												<md-menu-item ng-repeat="item in ['Расписание']">
+													<md-button ng-click="ctrl.announceClick($index, item)">
+														<div layout="row" flex="">
+															<p flex="">{{item}}</p>
+														</div>
+													</md-button>
+												</md-menu-item>
+											</md-menu-content>
+										</md-menu>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</md-toolbar>
+			</md-content>
+			<md-list ng-controller="ListCtrl" ng-cloak="" style="overflow: auto; height: calc(100% - 63px);" class="listdemoListControls" ng-app="MyApp">
+					<img src = "icon.png">
+					<md-content class="md-padding">
+					<p class = "text">Расписание ВСГТУ это приложение для комфортного просмотра расписания университета ВСГТУ.</p>
+					<p class = "text">Разработано студией Deverty</p>
+					</md-content>
+			</md-list>
+		</div>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+		<script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1-master-0b72ab9/angular-material.js'></script>
+		<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+		<script src='https://code.angularjs.org/latest/angular-sanitize.min.js'></script>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src="js/angular-swipe.js"></script>
+		<script src="js/angular-swipe.min.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/add.js"></script>
+		<script src="cordova.js"></script>
+		<script>
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+	StatusBar.backgroundColorByHexString('#3399FF');
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+		if (networkState === Connection.NONE) {
+			alert('No internet');
+		} else if (networkState === Connection.WIFI) {
+			alert('WIFI internet');
+		}
+        
+    }
+		</script>
+	</body>
+</html>

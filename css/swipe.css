@@ -1,0 +1,78 @@
+html, body {
+	height: 100%;
+}
+.swipegory {
+	font: 16px/2em 'Montserrat', sans-serif;
+}
+.swipegory h1 {
+	text-align: center;
+	font-size: 26px;
+	margin: 10px 0 20px 0;
+}
+.swipegory p {
+	margin: 0 0 20px 0;
+}
+.swipegory .tab-content {
+	height: 95vh;
+	margin-top: 70px;
+}
+.swipegory {
+	position: relative;
+	height: 100%;
+	background: #fff;
+	overflow: hidden;
+	transition: 1s height;
+}
+.swipegory li a {
+	color: #000;
+	text-decoration: none;
+	padding: 0 20px;
+	height: 70px;
+	line-height: 70px;
+	display: block;
+	overflow: hidden;
+	transition: 1s color;
+	text-transform: uppercase;
+	text-align: center;
+	width: calc(100% - 50%);
+	margin: 0 25%;
+}
+.swipegory li .classes {
+	background-color: #ffffff;
+	max-height: 100%;
+	overflow: auto;
+	height: 100%;
+}
+.swipegory ul.panes {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: move;
+	padding: 0px;
+	margin: 0px;
+}
+.swipegory ul.panes li {
+	list-style-type: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.transition ul.panes li {
+	transition: 1s;
+}
+.swipegory ul.panes li.prev {
+	left: -100%;
+}
+.swipegory ul.panes li.cur {
+	left: 0;
+}
+.swipegory ul.panes li.next {
+	left: 100%;
+}
+.swipegory ul.panes li.before {
+	left: -100%;
+}
+.swipegory ul.panes li.after {
+	left: 100%;
+}
