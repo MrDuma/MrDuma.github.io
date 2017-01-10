@@ -11,11 +11,7 @@
     <author href="http://vk.com/slavadudkov" email="du15@li.ru">
         Deverty
     </author>
-	<!--
-		If you do not want any permissions to be added to your app, add the
-		following tag to your config.xml; you will still have the INTERNET
-		permission on your app, which PhoneGap requires.
-	-->
+	<content src="tt.html"></content>
 	<preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#880E4F" />
     <preference name="permissions"                value="none"/>
