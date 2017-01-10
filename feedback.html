@@ -16,17 +16,10 @@
 
   <body>
     <div ng-controller="ToolbarCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
-	<div ng-controller="ListCtrl" layout="column" ng-cloak="" ng-show="isLoading" style="position: fixed; z-index: 9; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.6);" class="progressCirculardemoBasicUsage" ng-app="MyApp">
-				<md-content layout-padding="" style="background: none; top: calc(50% - 36px);">
-					<div layout="row" layout-sm="column" layout-align="space-around">
-						<md-progress-circular class="md-accent" md-diameter="40"></md-progress-circular>
-					</div>
-				</md-content>
-			</div>
       <md-content>
         <md-toolbar class="md-hue-2">
           <div class="md-toolbar-tools">
-            <h2 flex="" md-truncate="">Добавить группу</h2>
+            <h2 flex="" md-truncate="">Обратная связь</h2>
             <div class="md-menu-demo menudemoMenuPositionModes" ng-controller="PositionDemoCtrl as ctrl" ng-cloak="" style="" ng-app="MyApp">
               <div class="menu-demo-container" layout-align="start center" layout="column">
                 <div class="menus" layout-wrap="" layout="row" layout-fill="" layout-align="space-between center" style="">
@@ -36,7 +29,7 @@
                         <md-icon md-menu-origin="" md-svg-icon="img/icons/more_vert.svg"></md-icon>
                       </md-button>
                       <md-menu-content width="4">
-                        <md-menu-item ng-repeat="item in ['Расписание', 'Обратная связь']">
+                        <md-menu-item ng-repeat="item in ['Расписание', 'Настройки групп']">
                           <md-button ng-click="ctrl.announceClick($index, item)">
                             <div layout="row" flex="">
                               <p flex="">{{item}}</p>
@@ -52,28 +45,27 @@
           </div>
         </md-toolbar>
       </md-content>
-      <div ng-controller="AddCtrl" layout="column" ng-cloak="" class="inputdemoErrors" ng-app="MyApp">
-        <md-content layout-padding="">
-          <form name="projectForm" ng-submit="submit()">
-            <md-input-container>
-              <label>Направление</label>
-              <md-select name="type" ng-model="type" required="">
-                <md-option value="spezialitet">Магистратура, колледж, ДОУ</md-option>
-                <md-option value="bakalavriat">Бакалавриат, специалитет</md-option>
-              </md-select>
-            </md-input-container>
-            <md-input-container>
-              <label>Название группы</label>
-              <input required="" name="clientName" ng-model="clientName">
-              <div ng-messages="projectForm.clientName.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </md-input-container>
-            <div>
-              <md-button type="submit">Поиск</md-button>
-            </div>
-          </form>
-      </div>
+      <div ng-controller="BackCtrl" layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage" ng-app="MyApp">
+	  <md-content layout-padding="">
+		<div>
+		  <form name="userForm"  ng-submit="send()">
+			<div layout-gt-sm="row">
+			  <md-input-container class="md-block" flex-gt-sm="">
+				<label>Email</label>
+				<input ng-model="user.email" type = "email">
+			  </md-input-container>
+			</div>
+			<md-input-container class="md-block">
+			  <label>Сообщение</label>
+			  <textarea ng-model="user.biography" rows="5" md-select-on-focus=""></textarea>
+			</md-input-container>
+			<div>
+				  <md-button type="submit">Отправить</md-button>
+			</div>
+		  </form>
+		</div>
+	  </md-content>
+	</div>
     </div>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
@@ -87,7 +79,7 @@
     <script src="js/angular-swipe.js"></script>
     <script src="js/angular-swipe.min.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/add.js"></script>
+    <script src="js/feedback.js"></script>
 	<script src="cordova.js"></script>
   </body>
 

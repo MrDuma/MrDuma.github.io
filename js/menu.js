@@ -21,6 +21,9 @@ MyApp.controller('PositionDemoCtrl', function DemoCtrl($mdDialog) {
 		} else if (itemName == 'О приложении') {
 			if (window.location.pathname.indexOf('about.html') == -1)
 				window.location = 'about.html';	
+		} else if (itemName == 'Обратная связь') {
+			if (window.location.pathname.indexOf('feedback.html') == -1)
+				window.location = 'feedback.html';	
 		}
     };
 });

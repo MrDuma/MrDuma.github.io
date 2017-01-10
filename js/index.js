@@ -1,11 +1,4 @@
-$(document).ready(function() {
-	
-	setTimeout(function() {
-		if(localStorage.length !== 0){
-			window.location = "tt.html";
-		}else{
-			window.location = "add.html";
-		}
-	}, 2000);
-	
-});
+document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+	  window.location = "tt.html"
+}

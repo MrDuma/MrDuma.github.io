@@ -1,7 +1,7 @@
 MyApp.controller('ToolbarCtrl', function($scope) {
 
 });
-MyApp.controller('AddCtrl', function($scope, $http,myutils) {
+MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 	var groups = new Object();
 	var data;
 	var listOfGroup = new Object();
@@ -12,20 +12,20 @@ MyApp.controller('AddCtrl', function($scope, $http,myutils) {
 	var nameWeekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 	var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
 	$scope.submit = function() {
-		myutils.showWait();
-		var networkState = navigator.network.connection.type;
-		if (networkState === Connection.NONE) {
-			myutils.hideWait();
-			alert("Отсутствует интернет соединение")
+		//var networkState = navigator.network.connection.type;
+		if (/*networkState === Connection.NONE*/ false) {
+			$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Нет соединения с интернетом')
+				  .textContent('Для работы приложения трубуется связь с интернетом.\nУбедитесь, что гаджет онлайн и попробуйте снова')
+				  .ok('Ок')
+			);
 		} else {
+        myutils.showWait();
 		var nameTable = $scope.type;
 		var name = $scope.clientName;
 		console.log(nameTable);
 		console.log(name);
-		if (name === '') {
-			myutils.hideWait();
-			alert('Введите номер группы!');
-		}
 		var tableGroup;
 		if (nameTable === 'bakalavriat') {
 			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fbakalavriat%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
@@ -33,14 +33,24 @@ MyApp.controller('AddCtrl', function($scope, $http,myutils) {
 			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fspezialitet%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback==JSON_CALLBACK';
 		} else {
 			myutils.hideWait();
-			alert('Выберите направление!');
+			$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Ой-ей!')
+				  .textContent('Выберите направление')
+				  .ok('Ок')
+			);
 		}
 		console.log(tableGroup);
 		$http.jsonp(tableGroup).success(function(json) {
 			data = json;
 			if (data.query.results === null) {
 				myutils.hideWait();
-				alert('Ошибка! Попробуйте позже!');
+				$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Упс!')
+				  .textContent('Ошибка. Попробуйте позже.')
+				  .ok('Ок')
+			);
 			}
 			var groupCheck = true;
 			var tableRow = data.query.results.tr;
@@ -70,7 +80,12 @@ MyApp.controller('AddCtrl', function($scope, $http,myutils) {
 			);
 			if (groupCheck) {
 				myutils.hideWait();
-				alert('Группа не найдена :(');
+				$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Упс!')
+				  .textContent('Группа не найдена.')
+				  .ok('Ок')
+			);
 			} else {
 				console.log(listOfGroup);
 				localStorage.setItem('listOfGroup', JSON.stringify(listOfGroup));
@@ -108,12 +123,16 @@ MyApp.controller('ListCtrl', function($scope, $http, myutils) {
 	$scope.lg = JSON.parse(List);
 	console.log($scope.lg);
 	$scope.openTable = function(id, nameOfGroupFunc) {
-		myutils.showWait();
 		var networkState = navigator.network.connection.type;
 		if (networkState === Connection.NONE) {
-			myutils.hideWait();
-			alert("Отсутствует интернет соединение")
+			$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Нет соединения с интернетом')
+				  .textContent('Для работы приложения трубуется связь с интернетом.\nУбедитесь, что гаджет онлайн и попробуйте снова')
+				  .ok('Ок')
+			);
 		} else {
+        myutils.showWait();
 		var idlist = id;
 		console.log(idlist);
 		var i = idlist['i'];

@@ -13,6 +13,15 @@
 
 	</head>
 	<body>
+	     <div id="page-loading">
+			<p>Загрузка...</p>
+		</div>
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded", function(event) {
+				$('#page-loading')
+					.fadeOut('slow');
+			});
+		</script>
 		<div ng-controller="ToolbarCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
 			<md-content style=" position: fixed; z-index: 9; width: 100%; ">
 				<md-toolbar class="md-hue-2">
@@ -30,7 +39,7 @@
 												<md-icon md-menu-origin="" md-svg-icon="img/icons/more_vert.svg"></md-icon>
 											</md-button>
 											<md-menu-content width="4">
-												<md-menu-item ng-repeat="item in ['Расписание', 'О приложении']">
+												<md-menu-item ng-repeat="item in ['Расписание', 'Обратная связь']">
 													<md-button ng-click="ctrl.announceClick($index, item)">
 														<div layout="row" flex="">
 															<p flex="">{{item}}</p>
@@ -93,7 +102,7 @@
 	<script src="js/angular-swipe.js"></script>
 	<script src="js/angular-swipe.min.js"></script>
 	<script src="js/menu.js"></script>
-		<script src="js/settings.js"></script>
-		<script src="cordova.js"></script>
+	<script src="js/settings.js"></script>
+	<script src="cordova.js"></script>
 	</body>
 </html>

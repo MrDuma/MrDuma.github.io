@@ -4,7 +4,7 @@ MyApp.controller('ToolbarCtrl', function($scope) {
 	}
 });
 
-MyApp.controller('CardCtrl', function($scope,myutils,$http) {
+MyApp.controller('CardCtrl', function($scope,myutils,$http,$mdDialog) {
 	var active = localStorage.getItem('activeGroup');
 	var retrievedObject = localStorage.getItem('groups');
 	var nameGroups = JSON.parse(retrievedObject);
@@ -50,8 +50,14 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http) {
 	$scope.refreshGroup = function(name) {
 		var networkState = navigator.network.connection.type;
 		if (networkState === Connection.NONE) {
-			alert("Отсутствует интернет соединение")
+			$mdDialog.show(
+				   $mdDialog.alert()
+				  .title('Нет соединения с интернетом')
+				  .textContent('Для работы приложения трубуется связь с интернетом.\nУбедитесь, что гаджет онлайн и попробуйте снова')
+				  .ok('Ок')
+			);
 		} else {
+		myutils.showWait();
 		var data;
 		var listOfGroup = new Object();
 		var timeTable = new Object();
@@ -59,7 +65,6 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http) {
 		timeTable.secondWeek = new Object();
 		var nameWeekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 		var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
-			myutils.showWait();
 			var nameTable = name.tableName;
 			var name = name.nameOfGroup;
 			var tableGroup;
@@ -72,7 +77,12 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http) {
 				data = json;
 				if (data.query.results === null) {
 					myutils.hideWait();
-					alert('Ошибка! Попробуйте позже!');
+					$mdDialog.show(
+						   $mdDialog.alert()
+						  .title('Упс!')
+						  .textContent('Ошибка. Попробуйте позже.')
+						  .ok('Ок')
+					);
 				}
 				var tableRow = data.query.results.tr;
 				tableRow.forEach(
@@ -147,7 +157,12 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http) {
 					var itemDay = data.query.results.tr;
 					if (data.query.results === null) {
 						myutils.hideWait();
-						alert('Ошибка! Попробуйте позже!');
+						$mdDialog.show(
+							   $mdDialog.alert()
+							  .title('Упс!')
+							  .textContent('Ошибка. Попробуйте позже.')
+							  .ok('Ок')
+						);
 					}
 					itemDay.forEach(
 						function(item, i, itemDay) {
