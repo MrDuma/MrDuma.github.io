@@ -4,7 +4,7 @@
 			xmlns:gap = "http://phonegap.com/ns/1.0"
 			id        = "com.deverty.timetable"
 			version   = "1.0.0">
-    <name>ВСГУТУ</name>
+    <name>Расписание</name>
     <description>
         Расписание ВСГУТУ
     </description>
