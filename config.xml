@@ -11,7 +11,6 @@
     <author href="http://vk.com/slavadudkov" email="du15@li.ru">
         Deverty
     </author>
-	<content src="tt.html"></content>
 	<preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#880E4F" />
     <preference name="permissions"                value="none"/>
