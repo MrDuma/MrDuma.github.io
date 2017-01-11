@@ -13,7 +13,7 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 	var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
 	$scope.submit = function() {
 		var networkState = navigator.network.connection.type;
-		if (networkState === Connection.NONE false) {
+		if (networkState === Connection.NONE) {
 			$mdDialog.show(
 				   $mdDialog.alert()
 				  .title('Нет соединения с интернетом')
@@ -183,7 +183,12 @@ MyApp.controller('ListCtrl', function($scope, $http, myutils) {
 				var itemDay = data.query.results.tr;
 				if (data.query.results === null) {
 					myutils.hideWait();
-					alert('Ошибка! Попробуйте позже!');
+					$mdDialog.show(
+						   $mdDialog.alert()
+						  .title('Упс!')
+						  .textContent('Ошибка. Попробуйте позже.')
+						  .ok('Ок')
+					);
 				}
 				itemDay.forEach(
 					function(item, i, itemDay) {
