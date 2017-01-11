@@ -12,8 +12,8 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 	var nameWeekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 	var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
 	$scope.submit = function() {
-		//var networkState = navigator.network.connection.type;
-		if (/*networkState === Connection.NONE*/ false) {
+		var networkState = navigator.network.connection.type;
+		if (networkState === Connection.NONE false) {
 			$mdDialog.show(
 				   $mdDialog.alert()
 				  .title('Нет соединения с интернетом')
