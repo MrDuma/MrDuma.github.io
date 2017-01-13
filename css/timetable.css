@@ -109,7 +109,8 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
 	background-color: #999999; 
 }
 .classes {
-	margin: 15px 0 !important;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .md-toolbar-tools>h2 {
 	color:white;

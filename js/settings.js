@@ -48,8 +48,13 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http,$mdDialog) {
 		window.location = "settings.html";
     };
 	$scope.refreshGroup = function(name) {
-		var networkState = navigator.network.connection.type;
-		if (networkState === Connection.NONE) {
+		var networkState;
+		if (navigator.network === undefined) {
+			networkState = false;
+		} else if (navigator.network.connection.type === Connection.NONE) {
+			networkState = true;
+		};
+		if (networkState) {
 			$mdDialog.show(
 				   $mdDialog.alert()
 				  .title('Нет соединения с интернетом')

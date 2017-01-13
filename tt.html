@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Расписание ВСГУТУ</title>
-		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
-		<link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+		<link rel='stylesheet prefetch' href='css/docs.css'>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1-master-0b72ab9/angular-material.css'>
@@ -51,43 +50,33 @@
 			  </div>
 			</md-toolbar>
 		  </md-content>
-		  <div ng-cloak="" ng-controller="SwipeCtrl" class="" ng-app="MyApp">
-			<div ng-controller="ListCtrl" ng-cloak="" class="dividerdemoBasicUsage" ng-app="MyApp">
+		  <div ng-controller="SwipeCtrl" class="" ng-app="MyApp">
+			<div ng-controller="ListCtrl" class="dividerdemoBasicUsage" ng-app="MyApp">
 			  <md-tabs md-selected="data.selectedIndexWeek">
 				<md-tab label="{{data.nameFirstWeek}}">
 				  <md-content>
 					<md-tabs ng-swipe-left="next1()" ng-swipe-right="previous1()" md-selected="data.selectedIndex1">
 					  <md-tab label="Пн">
-						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.monday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.monday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="firsttimes.monday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::firsttimes.monday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
-						</md-content>
 					  </md-tab>
 					  <md-tab label="Вт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.tuesday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.tuesday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
 							  </div>
-							</div>
-							<div style="classes" ng-if="firsttimes.tuesday.off">
-							  <md-list-item class="md-3-line" ng-bind-html="::firsttimes.tuesday.off">
-								<md-divider md-inset></md-divider>
+							<div style="classes" >
+							  <md-list-item class="md-3-line" ng-if="firsttimes.tuesday.off" ng-bind-html="::firsttimes.tuesday.off">
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -96,16 +85,12 @@
 					  <md-tab label="Ср">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.wednesday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.wednesday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="firsttimes.wednesday.off">
 							  <md-list-item class="md-3-line" ng-bind-html="::firsttimes.wednesday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -114,16 +99,12 @@
 					  <md-tab label="Чт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.thursday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.thursday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="firsttimes.thurday.off">
 							  <md-list-item class="md-3-line" ng-bind-html="::firsttimes.thurday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -132,16 +113,12 @@
 					  <md-tab label="Пт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.friday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.friday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="firsttimes.friday.off">
 							  <md-list-item class="md-3-line" ng-bind-html="::firsttimes.friday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -150,16 +127,12 @@
 					  <md-tab label="Сб">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in firsttimes.saturday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in firsttimes.saturday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
-							<div style="classes" ng-if="firsttimes.saturday.off">
-							  <md-list-item class="md-3-line" ng-bind-html="::firsttimes.saturday.off">
-								<md-divider md-inset></md-divider>
+							<div style="classes" >
+							  <md-list-item class="md-3-line" ng-if="firsttimes.saturday.off" ng-bind-html="::firsttimes.saturday.off">
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -174,16 +147,12 @@
 					  <md-tab label="Пн">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.monday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.monday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.monday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::secondtimes.monday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -192,16 +161,12 @@
 					  <md-tab label="Вт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.tuesday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.tuesday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.tuesday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::secondtimes.tuesday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -210,16 +175,12 @@
 					  <md-tab label="Ср">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.wednesday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.wednesday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.wednesday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::secondtimes.wednesday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -228,16 +189,12 @@
 					  <md-tab label="Чт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.thursday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.thursday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.thursday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::secondtimes.thursday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -246,16 +203,12 @@
 					  <md-tab label="Пт">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.friday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.friday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.friday.off">
 							  <md-list-item class="md-3-line" ng-bind-html-unsafe="::secondtimes.friday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>
@@ -264,16 +217,12 @@
 					  <md-tab label="Сб">
 						<md-content>
 						  <md-list>
-							<div style="classes" ng-repeat="item in secondtimes.saturday" ng-if="item.lesDay">
-							  <div data-ng-click="showsingleclass(item.lesDi,$event)">
+							<div style="classes" ng-repeat="item in secondtimes.saturday" ng-if="item.lesDay" data-ng-click="showsingleclass(item.lesDi,$event)">
 								<md-list-item class="md-3-line" ng-bind-html="::item.lesDay">
-								  <md-divider md-inset></md-divider>
 								</md-list-item>
-							  </div>
 							</div>
 							<div style="classes" ng-if="secondtimes.saturday.off">
 							  <md-list-item class="md-3-line" ng-bind-html="::secondtimes.saturday.off">
-								<md-divider md-inset></md-divider>
 							  </md-list-item>
 							</div>
 						  </md-list>

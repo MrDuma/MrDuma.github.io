@@ -12,8 +12,13 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 	var nameWeekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 	var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
 	$scope.submit = function() {
-		var networkState = navigator.network.connection.type;
-		if (networkState === Connection.NONE) {
+		var networkState;
+		if (navigator.network === undefined) {
+			networkState = false;
+		} else if (navigator.network.connection.type === Connection.NONE) {
+			networkState = true;
+		};
+		if (networkState) {
 			$mdDialog.show(
 				   $mdDialog.alert()
 				  .title('Нет соединения с интернетом')
@@ -123,8 +128,13 @@ MyApp.controller('ListCtrl', function($scope, $http, myutils) {
 	$scope.lg = JSON.parse(List);
 	console.log($scope.lg);
 	$scope.openTable = function(id, nameOfGroupFunc) {
-		var networkState = navigator.network.connection.type;
-		if (networkState === Connection.NONE) {
+		var networkState;
+		if (navigator.network === undefined) {
+			networkState = false;
+		} else if (navigator.network.connection.type === Connection.NONE) {
+			networkState = true;
+		};
+		if (networkState) {
 			$mdDialog.show(
 				   $mdDialog.alert()
 				  .title('Нет соединения с интернетом')
@@ -380,7 +390,7 @@ MyApp.controller('ListCtrl', function($scope, $http, myutils) {
 					}
 					if (howManyClassesCanceled == 6) {
 					  var freeDay =  '<p class = "free">Занятий нет</p>';
-					 ADay["off"] = freeDay;
+					 ADay["first"].lesDay = freeDay;
 					}
 				  }
 			    timeTable.firsttimes = new Object(); 
