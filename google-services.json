@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "1074739572514",
+    "firebase_url": "https://note-223c5.firebaseio.com",
+    "project_id": "note-223c5",
+    "storage_bucket": "note-223c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074739572514:android:2dcc4c587b4a79a3",
+        "android_client_info": {
+          "package_name": "com.deverty.timetable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074739572514-ah1tlevgfdb3ekdr9h5f0ni9oc3qu0vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
