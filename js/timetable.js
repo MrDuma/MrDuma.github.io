@@ -6,6 +6,7 @@ MyApp.controller('ToolbarCtrl', function($scope) {
 MyApp.controller('SwipeCtrl', SwipeCtrl);
 function SwipeCtrl ( $scope ) {
     var numWeek = weekInfo();
+	console.log(numWeek);
 	var now = new Date();
 	var nD;
 	if ( now.getDay() === 0) {
@@ -18,7 +19,7 @@ function SwipeCtrl ( $scope ) {
 	var nw;
 	var nDay1;
 	var nDay2;
-	if(numWeek = 2) {
+	if(numWeek === 2) {
 		fw = 'I неделя';
 		sw = 'II неделя (тек.)';
 		nw = 1;
@@ -30,7 +31,8 @@ function SwipeCtrl ( $scope ) {
 		nw = 0;
 		nDay2 = 0;
 		nDay1 = nD;
-	}; 
+	};
+	console.log(nw);
 	$scope.data = {
       selectedIndex1: nDay1,
 	  selectedIndex2: nDay2,
