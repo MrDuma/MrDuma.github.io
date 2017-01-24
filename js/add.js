@@ -35,7 +35,7 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 		if (nameTable === 'bakalavriat') {
 			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fbakalavriat%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
 		} else if (nameTable === 'spezialitet') {
-			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fspezialitet%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback==JSON_CALLBACK';
+			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fspezialitet%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
 		} else {
 			myutils.hideWait();
 			$mdDialog.show(
@@ -232,14 +232,14 @@ MyApp.controller('ListCtrl', function($scope, $http, myutils) {
 								var indexdot2;
 								var teacher = new Object();
 								for (var index = 0; index < resulttemp.length; index++) {
-									if (resulttemp[index].split('.').length - 1 == 2) {
+									if (resulttemp[index].split('.').length - 1 == 2 || resulttemp[index].split('.').length == 2) {
 										indexdot1 = index;
 										teacher['one'] = resulttemp[indexdot1 - 1] + ' ' + resulttemp[indexdot1];
 										break;
 									}
 								}
 								for (var index = indexdot1 + 1; index < resulttemp.length; index++) {
-									if (resulttemp[index].split('.').length - 1 == 2) {
+									if (resulttemp[index].split('.').length - 1 == 2 || resulttemp[index].split('.').length == 2) {
 										indexdot2 = index;
 										teacher['two'] = resulttemp[indexdot2 - 1] + ' ' + resulttemp[indexdot2];
 									}

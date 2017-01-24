@@ -201,14 +201,14 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http,$mdDialog) {
 									var indexdot2;
 									var teacher = new Object();
 									for (var index = 0; index < resulttemp.length; index++) {
-										if (resulttemp[index].split('.').length - 1 == 2) {
+										if (resulttemp[index].split('.').length - 1 == 2 || resulttemp[index].split('.').length == 2) {
 											indexdot1 = index;
 											teacher['one'] = resulttemp[indexdot1 - 1] + ' ' + resulttemp[indexdot1];
 											break;
 										}
 									}
 									for (var index = indexdot1 + 1; index < resulttemp.length; index++) {
-										if (resulttemp[index].split('.').length - 1 == 2) {
+										if (resulttemp[index].split('.').length - 1 == 2 || resulttemp[index].split('.').length == 2) {
 											indexdot2 = index;
 											teacher['two'] = resulttemp[indexdot2 - 1] + ' ' + resulttemp[indexdot2];
 										}
