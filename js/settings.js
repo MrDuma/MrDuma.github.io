@@ -76,7 +76,7 @@ MyApp.controller('CardCtrl', function($scope,myutils,$http,$mdDialog) {
 			if (nameTable === 'bakalavriat') {
 				tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fbakalavriat%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
 			} else if (nameTable === 'spezialitet') {
-				tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fspezialitet%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback==JSON_CALLBACK';
+				tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fspezialitet%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
 			}
 			$http.jsonp(tableGroup).success(function(json) {
 				data = json;
