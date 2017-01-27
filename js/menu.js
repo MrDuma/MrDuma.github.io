@@ -11,19 +11,18 @@ MyApp.controller('PositionDemoCtrl', function DemoCtrl($mdDialog) {
 		originatorEv = ev;
 		$mdMenu.open(ev);
     };
-    this.announceClick = function(index, itemName) {
-		if (itemName == 'Расписание') {
-			if (window.location.pathname.indexOf('tt.html') == -1)
-				window.location = 'tt.html';	
-		} else if (itemName == 'Настройки групп') {
-			if (window.location.pathname.indexOf('settings.html') == -1)
+    this.announceClick = function(itemName) {
+		if (itemName == 'Настройки групп') {
 				window.location = 'settings.html';	
-		} else if (itemName == 'О приложении') {
-			if (window.location.pathname.indexOf('about.html') == -1)
-				window.location = 'about.html';	
-		} else if (itemName == 'Обратная связь') {
-			if (window.location.pathname.indexOf('feedback.html') == -1)
+		}else if (itemName == 'Расписание') {
+				window.location = 'tt.html';	
+		}  else if (itemName == 'Обратная связь') {
 				window.location = 'feedback.html';	
+		}else if (itemName == 'О приложении') {
+				window.location = 'about.html';	
 		}
+    };
+	this.announceLink = function(page) {
+		window.location = page + '.html';
     };
 });
