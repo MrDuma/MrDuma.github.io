@@ -38,12 +38,19 @@
 												<md-icon md-menu-origin="" md-svg-icon="img/icons/more_vert.svg"></md-icon>
 											</md-button>
 											<md-menu-content width="4">
-												<md-menu-item ng-repeat="item in ['Расписание', 'Обратная связь']">
-													<md-button ng-click="ctrl.announceClick($index, item)">
-														<div layout="row" flex="">
-															<p flex="">{{item}}</p>
-														</div>
-													</md-button>
+												<md-menu-item>
+												  <md-button ng-click="ctrl.announceLink('tt')">
+													<div layout="row" flex="">
+													  <p flex="">Расписание</p>
+													</div>
+												  </md-button>
+												</md-menu-item>
+												<md-menu-item>
+												  <md-button ng-click="ctrl.announceLink('feedback')">
+													<div layout="row" flex="">
+													  <p flex="">Обратная связь</p>
+													</div>
+												  </md-button>
 												</md-menu-item>
 											</md-menu-content>
 										</md-menu>
