@@ -11,6 +11,11 @@ function SwipeCtrl ( $scope ) {
 	var nD;
 	if ( now.getDay() === 0) {
 		nD = now.getDay();
+		if(numWeek === 2) {
+			numWeek = 1;
+		} else {
+			numWeek = 2;
+		}
 	} else {
 		nD = now.getDay() - 1;
 	}
@@ -20,24 +25,13 @@ function SwipeCtrl ( $scope ) {
 	var nDay1;
 	var nDay2;
 	if(numWeek === 2) {
-		if (nD)
 		fw = 'I неделя';
 		sw = 'II неделя (тек.)';
-		if (now.getDay() === 0){
-			nw = 0;
-		} else {
-			nw = 1;
-		};
 		nDay1 = 0;
 		nDay2 = nD;
 	} else {
 		fw = 'I неделя (тек.)';
 		sw = 'II неделя';
-		if (now.getDay() === 0){
-			nw = 1;
-		} else {
-			nw = 0;
-		};
 		nDay2 = 0;
 		nDay1 = nD;
 	};
