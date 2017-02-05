@@ -27,11 +27,13 @@ function SwipeCtrl ( $scope ) {
 	if(numWeek === 2) {
 		fw = 'I неделя';
 		sw = 'II неделя (тек.)';
+		nw = 1;
 		nDay1 = 0;
 		nDay2 = nD;
 	} else {
 		fw = 'I неделя (тек.)';
 		sw = 'II неделя';
+		nw = 0;
 		nDay2 = 0;
 		nDay1 = nD;
 	};
