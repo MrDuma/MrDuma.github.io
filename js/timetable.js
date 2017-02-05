@@ -20,15 +20,24 @@ function SwipeCtrl ( $scope ) {
 	var nDay1;
 	var nDay2;
 	if(numWeek === 2) {
+		if (nD)
 		fw = 'I неделя';
 		sw = 'II неделя (тек.)';
-		nw = 1;
+		if (now.getDay() === 0){
+			nw = 0;
+		} else {
+			nw = 1;
+		};
 		nDay1 = 0;
 		nDay2 = nD;
 	} else {
 		fw = 'I неделя (тек.)';
 		sw = 'II неделя';
-		nw = 0;
+		if (now.getDay() === 0){
+			nw = 1;
+		} else {
+			nw = 0;
+		};
 		nDay2 = 0;
 		nDay1 = nD;
 	};
