@@ -14,7 +14,7 @@
 
   </head>
 
-  <body onmousedown="return false" onselectstart="return false">
+  <body>
     <div ng-controller="ToolbarCtrl" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MyApp">
 	<div ng-controller="ListCtrl" layout="column" ng-cloak="" ng-show="isLoading" style="position: fixed; z-index: 9; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.6);" class="progressCirculardemoBasicUsage" ng-app="MyApp">
 				<md-content layout-padding="" style="background: none; top: calc(50% - 36px);">
@@ -52,27 +52,25 @@
           </div>
         </md-toolbar>
       </md-content>
-      <div ng-controller="AddCtrl" layout="column" ng-cloak="" class="inputdemoErrors" ng-app="MyApp">
-        <md-content layout-padding="">
-          <form name="projectForm" ng-submit="submit()">
+      <div ng-controller="AddCtrl" layout="column" ng-cloak="" ng-app="MyApp">
+		<md-content layout-padding="">
+		  <form ng-submit="submit()">
             <md-input-container>
               <label>Направление</label>
-              <md-select name="type" ng-model="type" required="">
+              <md-select ng-model="type" required="">
                 <md-option value="spezialitet">Магистратура, колледж, ДОУ</md-option>
                 <md-option value="bakalavriat">Бакалавриат, специалитет</md-option>
               </md-select>
             </md-input-container>
             <md-input-container>
               <label>Название группы</label>
-              <input required="" name="clientName" ng-model="clientName">
-              <div ng-messages="projectForm.clientName.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
+              <input required  ng-model="clientName">
             </md-input-container>
             <div>
               <md-button type="submit">Поиск</md-button>
             </div>
           </form>
+		  </md-content>
       </div>
     </div>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>

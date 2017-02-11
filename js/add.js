@@ -11,6 +11,9 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
 	timeTable.secondWeek = new Object();
 	var nameWeekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 	var nameClassDay = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
+	$scope.setFocus = function(elem) {
+		elem.focus();
+	};
 	$scope.submit = function() {
 		var networkState;
 		if (navigator.network === undefined) {
@@ -29,8 +32,6 @@ MyApp.controller('AddCtrl', function($scope, $http, myutils, $mdDialog) {
         myutils.showWait();
 		var nameTable = $scope.type;
 		var name = $scope.clientName;
-		console.log(nameTable);
-		console.log(name);
 		var tableGroup;
 		if (nameTable === 'bakalavriat') {
 			tableGroup = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fportal.esstu.ru%2Fbakalavriat%2Fraspisan.htm%22and%20xpath%3D%22%2F%2Ftable%2Ftbody%2Ftr%22&format=json&diagnostics=true&callback=JSON_CALLBACK';
